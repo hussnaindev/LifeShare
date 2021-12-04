@@ -5,5 +5,3 @@
 **/*.css.map
 
 **build/
-
-**package-lock.json
