@@ -1,66 +1,62 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300&display=swap');
 
-*{
-    padding: 0;
-    margin: 0;
+* {
+    padding    : 0;
+    margin     : 0;
     font-family: 'Outfit', sans-serif;
-    
+
 }
 
-.registerPage
-{
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5));
-    background-size: 100%;
+.registerPage {
+    height           : 100vh;
+    display          : flex;
+    align-items      : center;
+    justify-content  : center;
+    background-image : linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    background-size  : 100%;
     background-repeat: no-repeat;
 }
 
-.registerForm-container
-{
-    height: 85vh;
-    width: 80vh;
-    border-radius: 1rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.registerForm-container {
+    height          : 85vh;
+    width           : 80vh;
+    border-radius   : 1rem;
+    display         : flex;
+    justify-content : center;
+    align-items     : center;
     background-color: whitesmoke;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow      : 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.registerForm
-{
-    height: 80vh;
-    width: 70vh;
-    display: flex;
-    align-items: center;
+.registerForm {
+    height        : 80vh;
+    width         : 70vh;
+    display       : flex;
+    align-items   : center;
     flex-direction: column;
- 
+
 }
 
-.registerForm > div
-{
+.registerForm>div {
     margin-top: 1.5rem;
 }
 
-.username, .email, .password , .confirmPassword
-{
+.username,
+.email,
+.password,
+.confirmPassword,
+.register-btn {
     width: 50vh;
 }
 
 
-.pwd-and-register-container
-{
-    width: 50vh;
-    display: flex;
+.pwd-and-register-container {
+    width          : 50vh;
+    display        : flex;
     justify-content: space-between;
-    font-size: .9rem;
+    font-size      : .9rem;
 }
 
-.link-to-login
-{
+.link-to-login {
     color: blue;
 }
-
