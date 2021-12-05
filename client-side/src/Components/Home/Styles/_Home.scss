@@ -1,0 +1,16 @@
+.home {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 99fr;
+    
+    &__page {
+        display: grid;
+        place-items: center;
+        border-left: solid black 4px;
+        
+        &__heading {
+            color: black;
+            font-size: 4vw;
+        }
+    }
+}

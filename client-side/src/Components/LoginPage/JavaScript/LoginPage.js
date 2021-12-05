@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
-import { IconButton, InputAdornment, TextField, Button } from '@material-ui/core';
-import { LockRounded, AccountCircleRounded, Visibility, VisibilityOff } from '@material-ui/icons';
-import { Link } from 'react-router-dom'
-import './LoginPage.css'
+import {Button, IconButton, InputAdornment, TextField} from '@material-ui/core';
+import {AccountCircleRounded, LockRounded, Visibility, VisibilityOff} from '@material-ui/icons';
+import React, {useState} from 'react';
+import {Link} from 'react-router-dom';
+import "../Styles/LoginPage.css";
 
 const LoginPage = () => {
-
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [showPassword, setShowPassword] = useState(false)
@@ -31,12 +30,9 @@ const LoginPage = () => {
 
     return (
         <div className='loginPage'>
-
             <div className='loginForm-container'>
-
                 <form className='loginForm' onSubmit={handleLoginForm}>
                     <AccountCircleRounded style={{ fontSize: 60 }} />
-
                     <div className='username-container'>
                         <TextField className='username' label="Username" variant="outlined" value={username} onChange={handleUsername}
                             InputProps={{
@@ -45,7 +41,6 @@ const LoginPage = () => {
                                 </InputAdornment>
                             }} />
                     </div>
-
                     <div className='password-container'>
                         <TextField className='password' label="Password" type={showPassword ? 'text' : 'password'} variant="outlined" value={password} onChange={handlePassword}
                             InputProps={{
@@ -60,20 +55,16 @@ const LoginPage = () => {
                             }}
                         />
                     </div>
-
                     <div className='forgot-pwd-container'>
                         <Link className='forgot-pwd' to='#'>Forgot Password?</Link>
                     </div>
-
                     <div className='login-btn-container'>
                         <Button variant='contained' color="primary" className="login-btn" type='submit'>Login</Button>
                     </div>
-
                     <div className='link-to-register-container'>
                         Don't have account?
                         <Link className='link-to-register' to='/register'>Register</Link>
                     </div>
-
                 </form>
             </div>
         </div>

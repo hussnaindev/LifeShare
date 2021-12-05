@@ -1,0 +1,20 @@
+.home {
+  height: 100vh;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 99fr;
+      grid-template-columns: 1fr 99fr;
+}
+
+.home__page {
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  border-left: solid black 4px;
+}
+
+.home__page__heading {
+  color: black;
+  font-size: 4vw;
+}
+/*# sourceMappingURL=App.css.map */
