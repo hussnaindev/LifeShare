@@ -19,8 +19,9 @@
 
 .registerForm-container {
     height          : 85vh;
-    width           : 80vh;
-    border-radius   : 1rem;
+    width           : 35vw;
+    min-width       : 60vh;
+    border-radius   : 1vw;
     display         : flex;
     justify-content : center;
     align-items     : center;
@@ -29,16 +30,16 @@
 }
 
 .registerForm {
-    height        : 80vh;
-    width         : 70vh;
+    height        : 100%;
+    width         : 100%;
     display       : flex;
     align-items   : center;
+    justify-content: center;
     flex-direction: column;
-
 }
 
 .registerForm>div {
-    margin-top: 1.5rem;
+    margin-top: 1.5vw;
 }
 
 .username,
@@ -54,7 +55,7 @@
     width          : 50vh;
     display        : flex;
     justify-content: space-between;
-    font-size      : .9rem;
+    font-size      : .9vw;
 }
 
 .link-to-login {
