@@ -3,12 +3,13 @@ import {initializeApp} from "firebase/app";
 import {getAuth} from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBIEpWniHdB0gjvCZ4NJjMCMH8Ep1NJJtg",
-  authDomain: "lifeshare-uet.firebaseapp.com",
-  projectId: "lifeshare-uet",
-  storageBucket: "lifeshare-uet.appspot.com",
-  messagingSenderId: "731471044357",
-  appId: "1:731471044357:web:102295d2107b0daf5ba16c",
+    apiKey: "AIzaSyDVXqLatNnKjzMOlXslD68zngp-TSMWdlQ",
+    authDomain: "lifeshare-org.firebaseapp.com",
+    projectId: "lifeshare-org",
+    storageBucket: "lifeshare-org.appspot.com",
+    messagingSenderId: "767121092861",
+    appId: "1:767121092861:web:30e4c9eb8c76e5eabbce94",
+    measurementId: "${config.measurementId}"
 };
 
 const firebaseApp = initializeApp(firebaseConfig);
