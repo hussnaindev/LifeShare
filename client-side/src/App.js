@@ -5,6 +5,7 @@ import Home from './Components/Home/Home';
 import LoginPage from './Components/LoginPage/LoginPage';
 import RegisterPage from './Components/RegisterPage/RegisterPage';
 import MapService from './Components/Map/MapService';
+import MapService from './Components/Dashboard/Dashboard';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/register' element={<RegisterPage />} />
         <Route path='/login' element={<LoginPage />} />
+        <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/locationservice' element={<MapService />} />
       </Routes>
     </Router>
