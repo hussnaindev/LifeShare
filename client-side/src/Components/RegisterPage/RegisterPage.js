@@ -1,8 +1,8 @@
-import {Button, IconButton, InputAdornment, TextField} from '@material-ui/core';
-import {AccountCircleRounded, EmailRounded, LockRounded, Visibility, VisibilityOff} from '@material-ui/icons';
-import React, {useState} from 'react';
-import {Link} from 'react-router-dom';
-import '../Styles/RegisterPage.css';
+import { Button, IconButton, InputAdornment, TextField } from '@material-ui/core';
+import { AccountCircleRounded, EmailRounded, LockRounded, Visibility, VisibilityOff } from '@material-ui/icons';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import './RegisterPage.css';
 
 const RegisterPage = () => {
     const [username, setUsername] = useState('')
@@ -52,7 +52,7 @@ const RegisterPage = () => {
             <div className='registerForm-container'>
                 <form className='registerForm' onSubmit={handleRegisterForm}>
                     <AccountCircleRounded style={{ fontSize: 60 }} />
-                    
+
                     <div className='email-container'>
                         <TextField className='email' label="Email" variant="outlined" value={email} onChange={handleEmail}
                             InputProps={{

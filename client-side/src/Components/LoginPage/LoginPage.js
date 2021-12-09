@@ -1,8 +1,8 @@
-import {Button, IconButton, InputAdornment, TextField} from '@material-ui/core';
-import {AccountCircleRounded, LockRounded, Visibility, VisibilityOff} from '@material-ui/icons';
-import React, {useState} from 'react';
-import {Link} from 'react-router-dom';
-import "../Styles/LoginPage.css";
+import { Button, IconButton, InputAdornment, TextField } from '@material-ui/core';
+import { AccountCircleRounded, LockRounded, Visibility, VisibilityOff } from '@material-ui/icons';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import "./LoginPage.css";
 
 const LoginPage = () => {
     const [username, setUsername] = useState('')
