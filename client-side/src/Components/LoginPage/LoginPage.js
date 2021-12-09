@@ -1,40 +1,33 @@
-import { Button, IconButton, InputAdornment, TextField } from '@material-ui/core';
-import { AccountCircleRounded, LockRounded, Visibility, VisibilityOff } from '@material-ui/icons';
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import {signInWithEmailAndPassword} from '@firebase/auth';
+import {Button, IconButton, InputAdornment, TextField} from '@material-ui/core';
+import {AccountCircleRounded, LockRounded, Visibility, VisibilityOff} from '@material-ui/icons';
+import React, {useState} from 'react';
+import {Link} from 'react-router-dom';
+import auth from '../../Firebase';
 import "./LoginPage.css";
 
 const LoginPage = () => {
-    const [username, setUsername] = useState('')
+    const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [showPassword, setShowPassword] = useState(false)
-
-    const handleUsername = (e) => {
-        console.log(e.target.value)
-        setUsername(e.target.value)
-
-    }
-
-    const handlePassword = (e) => {
-        console.log(e.target.value)
-        setPassword(e.target.value)
-    }
-
-    const handleVisibilty = () => {
-        setShowPassword(!showPassword)
-    }
-
-    const handleLoginForm = (e) => {
-        e.preventDefault()
+    
+    const userSignIn =()=>{
+        signInWithEmailAndPassword(auth, email, password).then(
+            window.alert("User has been logged in")
+        ).catch(
+            (err) => {
+                window.alert(err);
+            }
+        )
     }
 
     return (
         <div className='loginPage'>
             <div className='loginForm-container'>
-                <form className='loginForm' onSubmit={handleLoginForm}>
+                <form className='loginForm' onSubmit={(e) => e.preventDefault()}>
                     <AccountCircleRounded style={{ fontSize: 60 }} />
                     <div className='username-container'>
-                        <TextField className='username' label="Username" variant="outlined" value={username} onChange={handleUsername}
+                        <TextField className='username' label="Email" variant="outlined" value={email} onChange={(e) => setEmail(e.target.value)}
                             InputProps={{
                                 startAdornment: <InputAdornment position="start">
                                     <AccountCircleRounded />
@@ -42,10 +35,10 @@ const LoginPage = () => {
                             }} />
                     </div>
                     <div className='password-container'>
-                        <TextField className='password' label="Password" type={showPassword ? 'text' : 'password'} variant="outlined" value={password} onChange={handlePassword}
+                        <TextField className='password' label="Password" type={showPassword ? 'text' : 'password'} variant="outlined" value={password} onChange={(e) => setPassword(e.target.value)}
                             InputProps={{
                                 endAdornment: <InputAdornment position="end">
-                                    <IconButton className='iconbtn' onClick={handleVisibilty}>
+                                    <IconButton className='iconbtn' onClick={() => setShowPassword(!showPassword)}>
                                         {showPassword ? <Visibility /> : <VisibilityOff />}
                                     </IconButton>
                                 </InputAdornment>,
@@ -59,7 +52,7 @@ const LoginPage = () => {
                         <Link className='forgot-pwd' to='#'>Forgot Password?</Link>
                     </div>
                     <div className='login-btn-container'>
-                        <Button variant='contained' color="primary" className="login-btn" type='submit'>Login</Button>
+                        <Button variant='contained' color="primary" onClick={() => userSignIn(email, password)} className="login-btn" type='submit'>Login</Button>
                     </div>
                     <div className='link-to-register-container'>
                         Don't have account?

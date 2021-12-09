@@ -1,7 +1,9 @@
-import { Button, IconButton, InputAdornment, TextField } from '@material-ui/core';
-import { AccountCircleRounded, EmailRounded, LockRounded, Visibility, VisibilityOff } from '@material-ui/icons';
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import {createUserWithEmailAndPassword} from '@firebase/auth';
+import {Button, IconButton, InputAdornment, TextField} from '@material-ui/core';
+import {AccountCircleRounded, EmailRounded, LockRounded, Visibility, VisibilityOff} from '@material-ui/icons';
+import React, {useState} from 'react';
+import {Link} from 'react-router-dom';
+import auth from '../../Firebase';
 import './RegisterPage.css';
 
 const RegisterPage = () => {
@@ -11,26 +13,15 @@ const RegisterPage = () => {
     const [confirmPassword, setConfirmPassword] = useState('')
     const [showPassword, setShowPassword] = useState(false)
     const [showConfirmPassword, setShowConfirmPassword] = useState(false)
-
-    const handleUsername = (e) => {
-        console.log(e.target.value)
-        setUsername(e.target.value)
-
-    }
-
-    const handleEmail = (e) => {
-        console.log(e.target.value)
-        setEmail(e.target.value)
-    }
-
-    const handlePassword = (e) => {
-        console.log(e.target.value)
-        setPassword(e.target.value)
-    }
-
-    const handleConfirmPassword = (e) => {
-        console.log(e.target.value)
-        setConfirmPassword(e.target.value)
+    
+    const registerUser = (email, password) => {
+        createUserWithEmailAndPassword(auth, email, password).then(
+            window.alert("User has been Created!")
+        ).catch(
+            (err) => {
+                window.alert(err);
+            }
+        )
     }
 
     const handleVisibilty = (input) => {
@@ -43,18 +34,14 @@ const RegisterPage = () => {
         }
     }
 
-    const handleRegisterForm = (e) => {
-        e.preventDefault()
-    }
-
     return (
         <div className='registerPage'>
             <div className='registerForm-container'>
-                <form className='registerForm' onSubmit={handleRegisterForm}>
+                <form className='registerForm' onSubmit={(e) => e.preventDefault()}>
                     <AccountCircleRounded style={{ fontSize: 60 }} />
 
                     <div className='email-container'>
-                        <TextField className='email' label="Email" variant="outlined" value={email} onChange={handleEmail}
+                        <TextField className='email' label="Email" variant="outlined" value={email} onChange={(e) => setEmail(e.target.value)}
                             InputProps={{
                                 startAdornment: <InputAdornment position="start">
                                     <EmailRounded />
@@ -63,7 +50,7 @@ const RegisterPage = () => {
                         />
                     </div>
                     <div className='username-container'>
-                        <TextField className='username' label="Username" variant="outlined" value={username} onChange={handleUsername}
+                        <TextField className='username' label="Username" variant="outlined" value={username} onChange={(e) => setUsername(e.target.value)}
                             InputProps={{
                                 startAdornment: <InputAdornment position="start">
                                     <AccountCircleRounded />
@@ -71,7 +58,7 @@ const RegisterPage = () => {
                             }} />
                     </div>
                     <div className='password-container'>
-                        <TextField className='password' label="Password" type={showPassword ? 'text' : 'password'} variant="outlined" value={password} onChange={handlePassword}
+                        <TextField className='password' label="Password" type={showPassword ? 'text' : 'password'} variant="outlined" value={password} onChange={(e) => setPassword(e.target.value)}
                             InputProps={{
                                 endAdornment: <InputAdornment position="end">
                                     <IconButton className='iconbtn' onClick={() => handleVisibilty('password')}>
@@ -85,7 +72,7 @@ const RegisterPage = () => {
                         />
                     </div>
                     <div className='confirmPassword-container'>
-                        <TextField className='confirmPassword' label="Confirm Password" type={showConfirmPassword ? 'text' : 'password'} variant="outlined" value={confirmPassword} onChange={handleConfirmPassword}
+                        <TextField className='confirmPassword' label="Confirm Password" type={showConfirmPassword ? 'text' : 'password'} variant="outlined" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)}
                             InputProps={{
                                 endAdornment: <InputAdornment position="end">
                                     <IconButton className='iconbtn' onClick={() => handleVisibilty('confirmPassword')}>
@@ -99,7 +86,7 @@ const RegisterPage = () => {
                         />
                     </div>
                     <div className='register-btn-container'>
-                        <Button className='register-btn' color="primary" variant='contained' type='submit'>Register</Button>
+                        <Button className='register-btn' color="primary" variant='contained' onClick={() => registerUser(email, password)}>Register</Button>
                     </div>
                     <div className='link-to-login-container'>
                         <p>Already have account?<Link className='link-to-login' to='/login' >Login</Link></p>
