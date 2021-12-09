@@ -5,7 +5,7 @@ import Home from './Components/Home/Home';
 import LoginPage from './Components/LoginPage/LoginPage';
 import RegisterPage from './Components/RegisterPage/RegisterPage';
 import MapService from './Components/Map/MapService';
-import MapService from './Components/Dashboard/Dashboard';
+import Dashboard from './Components/Dashboard/Dashboard';
 
 function App() {
   return (

@@ -1,7 +1,7 @@
 import { Button } from "@material-ui/core";
 import React from "react";
-import SideBar from "../../Home/JavaScript/SideBar";
-import '../Styles/Dashboard.css'
+import SideBar from "../Home/SideBar";
+import './Dashboard.css'
 import PersonSearchIcon from '@mui/icons-material/PersonSearch';
 import BloodtypeIcon from '@mui/icons-material/Bloodtype';
 import BookIcon from '@mui/icons-material/Book';
