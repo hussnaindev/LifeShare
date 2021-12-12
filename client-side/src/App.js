@@ -5,13 +5,15 @@ import Home from './Components/Home/Home';
 import LoginPage from './Components/LoginPage/LoginPage';
 import RegisterPage from './Components/RegisterPage/RegisterPage';
 import MapService from './Components/Map/MapService';
-import MapService from './Components/Dashboard/Dashboard';
+import Dashboard from './Components/Dashboard/Dashboard';
+import ChatBox from './Components/ChatBox/ChatBox'
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='/chat' element={<ChatBox />} />
         <Route path='/register' element={<RegisterPage />} />
         <Route path='/login' element={<LoginPage />} />
         <Route path='/dashboard' element={<Dashboard />} />
