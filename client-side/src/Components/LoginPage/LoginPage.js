@@ -1,9 +1,8 @@
 import {signInWithEmailAndPassword} from '@firebase/auth';
-import {Button, IconButton, InputAdornment, TextField} from '@material-ui/core';
+import {Button, IconButton, InputAdornment, Link, TextField} from '@material-ui/core';
 import {AccountCircleRounded, LockRounded, Visibility, VisibilityOff} from '@material-ui/icons';
 import React, {useState} from 'react';
-import {Link} from 'react-router-dom';
-import auth from '../../Firebase';
+import {auth} from '../../Firebase';
 import "./LoginPage.css";
 
 const LoginPage = () => {
@@ -11,23 +10,21 @@ const LoginPage = () => {
     const [password, setPassword] = useState('')
     const [showPassword, setShowPassword] = useState(false)
     
-    const userSignIn =()=>{
-        signInWithEmailAndPassword(auth, email, password).then(
-            window.alert("User has been logged in")
-        ).catch(
+    const userSignIn = () => {
+        signInWithEmailAndPassword(auth, email, password).catch(
             (err) => {
                 window.alert(err);
             }
         )
     }
-
+    
     return (
         <div className='loginPage'>
             <div className='loginForm-container'>
                 <form className='loginForm' onSubmit={(e) => e.preventDefault()}>
                     <AccountCircleRounded style={{ fontSize: 60 }} />
                     <div className='username-container'>
-                        <TextField className='username' label="Email" variant="outlined" value={email} onChange={(e) => setEmail(e.target.value)}
+                        <TextField className='password' label="Email" variant="outlined" value={email} onChange={(e) => setEmail(e.target.value)}
                             InputProps={{
                                 startAdornment: <InputAdornment position="start">
                                     <AccountCircleRounded />

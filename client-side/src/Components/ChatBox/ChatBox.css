@@ -1,8 +1,14 @@
+.chatpage {
+    display: grid;
+    grid-template-columns: 1fr 99fr;
+}
 
 .chatbox-container
 {
-    display: flex;
-    justify-content: center;
+    width: 100%;
+    display: grid;
+    place-items: center;
+    border-left: solid black 4px;
 }
 
 .chatbox

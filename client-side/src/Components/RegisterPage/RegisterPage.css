@@ -1,63 +1,309 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300&display=swap');
 
-* {
-    padding    : 0;
-    margin     : 0;
+*{
+    padding: 0;
+    margin: 0;
     font-family: 'Outfit', sans-serif;
-
+    
 }
 
-.registerPage {
-    height           : 100vh;
-    display          : flex;
-    align-items      : center;
-    justify-content  : center;
-    background-image : linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
-    background-size  : 100%;
+.registerPage
+{
+
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ 
+    background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5));
+    background-size: 100%;
     background-repeat: no-repeat;
 }
 
-.registerForm-container {
-    height          : 85vh;
-    width           : 35vw;
-    min-width       : 60vh;
-    border-radius   : 1vw;
-    display         : flex;
-    justify-content : center;
-    align-items     : center;
-    background-color: whitesmoke;
-    box-shadow      : 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+.register-containor
+{
+    height: 95vh;
+    width: 50vw;
+    background-color:whitesmoke;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.registerForm {
-    height        : 100%;
-    width         : 100%;
-    display       : flex;
-    align-items   : center;
+h1{
+  padding:3%;
+  text-align: center;
+}
+
+.register-form
+{
+  margin:5%;
+    /* height: 80vh; */
+    /* width: 70vh; */
+    display: flex;
     justify-content: center;
     flex-direction: column;
 }
 
-.registerForm>div {
-    margin-top: 1.5vw;
+.field{
+  margin: 0.7%;
+  /* height: 12px; */
+  /* margin: 20px; */
 }
 
-.username,
-.email,
-.password,
-.confirmPassword,
-.register-btn {
+.username{
+  /* height: 12px; */
+  width: 35vw;
+}
+InputAdornment{
+  height: 4px;
+}
+
+.btn{
+  width: 20vw;
+  margin-left: 20%;
+}
+.btn-1{
+  width: 20vw;
+}
+
+@media only screen and (max-width: 768px) {
+  [class*="col-"] {
+    width: 50%;
+    height: 100%;
+  }
+}
+
+/* .form-text{
+  margin: 20px;
+  padding: 20px;
+}
+
+.registerForm > div
+{
+    margin-top: 1.5rem;
+}
+
+.username, .email, .password , .confirmPassword
+{
     width: 50vh;
 }
 
 
-.pwd-and-register-container {
-    width          : 50vh;
-    display        : flex;
+.pwd-and-register-container
+{
+    width: 50vh;
+    display: flex;
     justify-content: space-between;
-    font-size      : .9vw;
+    font-size: .9rem;
 }
 
-.link-to-login {
+.link-to-login
+{
     color: blue;
 }
+
+:root{
+    --green:#27ae60;
+    --black:#192a56;
+    --light-color:rgb(189, 184, 184);
+    --box-shadow:0 0.5rem 1.5rem rgb(0,0,0,.1)
+  
+}
+
+header{
+    font: 62%;
+    /* position:fixed; */
+    /* top:0;
+    left:0;
+    right:0;
+    background: #fff;
+    padding: 1rem 7%;
+    display:flex;
+    align-items: center;
+    justify-content:space-between;
+    z-index:10;
+    box-shadow:var(--box-shadow);
+  }
+  
+  header .logo{
+    color:var(--black);
+    font-size:1.5rem;
+    font-weight:bolder;
+  }
+  
+  header .logo i{
+    color:var(--green);
+  }
+  
+  header .navbar b{
+    font-size:1rem;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1.5rem; 
+    color:var(--light-color);
+  }
+  
+  header .navbar b.active,
+  header .navbar b:hover{
+    color:black;
+    background:red;
+  }
+  
+  header .icons i,header .icons b,header .icons button{
+    cursor:pointer;
+    margin-left:0.5rem;
+    height:4.5rem;
+    line-height:4.5rem;
+    width: 4.5rem;
+    text-align: center;
+    font-size:1.7rem;
+    color:var(---black);
+    border-radius:50%;
+    background:#eee ;
+  } 
+  
+  header .icons #bars{
+    display : none ;
+  
+  }
+  
+  
+  .body-conatinor{
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg,#a34141,#b65959);
+  }
+  
+  .containor{
+    max-width: 700px;
+    width: 100%;
+    padding: 25px 30px;
+    border-radius: 5px;
+    background-color: #fff;
+  }
+  
+  .containor .title{
+    font-size: 25px;
+    font-weight: 500;
+    position: relative;
+  }
+  
+  .containor .title::before{
+    content:  "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 30px;
+    background: linear-gradient(135deg,#a34141,#b65959);
+  }
+  
+  .user-details{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  form .user-details .input-box{
+    /* margin: 20px 0 12px 0; */
+    /* width: calc(100%/2 -20px); */
+    /* width: 250px;
+    margin-bottom: 5px;
+  
+   }
+  
+  form .user-details .input-box .details{
+    margin: 20px 0 12px 0;
+    width: 100%;
+  }
+  
+  form .user-details .input-box input{
+    height: 45px;
+    width: 100%;
+    border: 0.1px solid rgb(216, 211, 211);
+    outline:none;
+  }
+  
+  .user-details .input-box input:focus,
+  .user-details .input-box input:valid{
+    border-color: #9b59b6;
+  }
+  
+  form .gender-details .gender-title{
+    font-size: 20px;
+    font-weight: 500; 
+  }
+  
+  form .gender-details .category{
+    display: flex;
+    width: 80%;
+    margin: 14px 0;
+    justify-content: space-between;
+  }
+  
+  .gender-details .category label{
+    display: flex;
+    align-items: center;
+  
+  }
+  
+  .gender-details .category .dot{
+    height: 18px;
+    width: 18px;
+    background: #d9d9d9;
+    border-radius: 50%;
+    margin-right:10px;
+    border-color: 5px solid transparent;
+    transition: all 0.3s ease;
+  }
+  
+  #dot-1:checked ~ .category  label .one,
+  #dot-2:checked ~ .category label .two,
+  #dot-3:checked ~ .category label .three{
+    border-color: #d9d9d9;
+    background: #b65959;
+  }
+  
+  form[input = "radio"]{
+    display: none;
+  }
+  
+  form .button{
+    height: 45px;
+    margin: 45px 0;
+  }
+  
+  form .button input{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    color: #fff;
+    border: none;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    background: linear-gradient(135deg,#a34141,#b65959);
+  
+  }
+  
+  @media(max-width:584px){
+    .containor{
+      max-width: 100%;
+    }
+    form .user-details .input-box{
+      margin-bottom: 15px;
+      width: 100%;
+    }
+    form .gender-details .category{
+      width: 100%;
+    }
+    .containor form .user-details{
+      max-height: 100%;
+      overflow-y: scroll;
+    }
+  }
+  
+  #1-box-1{
+    width: 100%;
+} */ 

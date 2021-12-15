@@ -1,7 +1,6 @@
 import React from "react";
 
-const TextBox = ({message}) =>
-{
+const TextBox = ({message}) => {
     const userBox = {
         width: "20vw",
         border: ".1rem",
@@ -36,7 +35,11 @@ const TextBox = ({message}) =>
     return(
         <div style={message.to==='userName' ? userBox: personBox}>
             <p >{message.body}</p>
-            <p style={time} >{message.time}</p>
+            <p style={time} >
+                {
+                    message.timestamp.toDate().toLocaleString()
+                }
+            </p>
         </div>
     )
 }
