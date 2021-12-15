@@ -11,7 +11,13 @@ const LoginPage = () => {
     const [showPassword, setShowPassword] = useState(false)
     
     const userSignIn = () => {
-        signInWithEmailAndPassword(auth, email, password).catch(
+        signInWithEmailAndPassword(auth, email, password).then(
+            (authUser) => {
+                if (authUser.user) {
+                    window.open("/", "__self")
+                }
+            }
+        ).catch(
             (err) => {
                 window.alert(err);
             }

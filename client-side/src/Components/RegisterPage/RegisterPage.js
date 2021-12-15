@@ -11,7 +11,7 @@ import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
 import TextField from '@mui/material/TextField';
 import {createUserWithEmailAndPassword, updateProfile} from 'firebase/auth';
-import {addDoc, collection} from 'firebase/firestore';
+import {addDoc, collection, GeoPoint} from 'firebase/firestore';
 import React, {useState} from 'react';
 import {auth, firestore} from '../../Firebase';
 import './RegisterPage.css';
@@ -69,7 +69,6 @@ const ResponsiveAppBar = () => {
       showBlood(true);
     }
     setTabValue(newValue);
-    console.log(newValue);
   };
   // end of tab function //
 
@@ -80,7 +79,6 @@ const ResponsiveAppBar = () => {
   const handleName = (e,name_text) =>
   {
       // console.log(name_text);
-      console.log(e.target.value)
       setName(e.target.value)
 
   }
@@ -92,7 +90,6 @@ const ResponsiveAppBar = () => {
   const handleUserName = (e,username_text) =>
   {
       // console.log(username_text);
-      console.log(e.target.value)
       setUsername(e.target.value)
 
   }
@@ -107,7 +104,6 @@ const ResponsiveAppBar = () => {
   const handleEmail = (e,email_text) =>
   {
       // console.log(email_text);
-      console.log(e.target.value)
       setEmail(e.target.value)
 
   }
@@ -115,19 +111,15 @@ const ResponsiveAppBar = () => {
     // end of email function //
 
   // start of password function //
-
-  // start of password function //
   const [password,setPassword] = useState('')
   const handlePassword = (e) =>
   {
-      console.log(e.target.value)
       setPassword(e.target.value)
   }  
 
   // password visibilty
   const [showPassword,setShowPassword] = useState(false)
-  const handleVisibilty = () =>
-  {
+  const handleVisibilty = () => {
       setShowPassword(!showPassword)
   }
   //password visibilty
@@ -137,7 +129,6 @@ const ResponsiveAppBar = () => {
   const [value, setValue] = React.useState(`Aplus`);
   const handleChange = (event, newValue) => {
     setValue(newValue);
-    console.log(newValue);
     setCurrency(event.target.value);
   };
 
@@ -161,6 +152,8 @@ const ResponsiveAppBar = () => {
   
   const registerUser = () => {
       getLocation();
+      
+        console.log(latitude, longitude)
     
       createUserWithEmailAndPassword(auth, email, password).then(
           (createUser) => {
@@ -173,10 +166,13 @@ const ResponsiveAppBar = () => {
                     {
                         name: name,
                         username: username,
-                        // location: new GeoPoint(latitude, longitude)
+                        location: new GeoPoint(latitude, longitude),
+                        // bloodGroup: value
                     }
                 )
               )
+              
+              window.open("/", "__self")
           }
       ).catch(
           (err) => {
