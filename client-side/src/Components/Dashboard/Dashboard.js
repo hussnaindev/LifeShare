@@ -1,25 +1,23 @@
-import { Button } from "@material-ui/core";
-import React from "react";
-import SideBar from "../Home/SideBar";
-import './Dashboard.css'
-import PersonSearchIcon from '@mui/icons-material/PersonSearch';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import BloodtypeIcon from '@mui/icons-material/Bloodtype';
 import BookIcon from '@mui/icons-material/Book';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import LogoutIcon from '@mui/icons-material/Logout';
+import PersonSearchIcon from '@mui/icons-material/PersonSearch';
+import React from "react";
+import {auth} from '../../Firebase';
+import './Dashboard.css';
 
 
-const Dashboard = () =>
-{
+const Dashboard = () => {
+    const logout = () => {
+        auth.signOut()
+    }
+    
+    
     return(
         <div className='dashboard-page' >
-            <div className='sidebar'>
-                <SideBar listItems={["Login", "Register", "Countinue as a Guest", "Hospitals"]} />
-            </div>
-
             <div className='dashboard-container'>
-                
                 <div className='dashboard'>
                     <button className='dashboard-button'>
                         <div className='dashboard-button-content'>
@@ -66,7 +64,7 @@ const Dashboard = () =>
                         </div>
                     </button>
 
-                    <button className='dashboard-button'>
+                    <button className='dashboard-button' onClick={logout}>
                         <div className='dashboard-button-content'>
                             <div>
                               <LogoutIcon style={{fontSize:'50px'}}/>
@@ -74,14 +72,9 @@ const Dashboard = () =>
                             Log out
                         </div>
                     </button>
-
                 </div>
-                    
             </div>
-          
-
         </div>
-      
     )
 }
 
