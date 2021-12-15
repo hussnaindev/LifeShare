@@ -7,12 +7,14 @@ import RegisterPage from './Components/RegisterPage/RegisterPage';
 import MapService from './Components/Map/MapService';
 import Dashboard from './Components/Dashboard/Dashboard';
 import ChatBox from './Components/ChatBox/ChatBox'
+import FindDonor from './Components/FindDonor/FindDonor';
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='/findDonor' element={<FindDonor />} />
         <Route path='/chat' element={<ChatBox />} />
         <Route path='/register' element={<RegisterPage />} />
         <Route path='/login' element={<LoginPage />} />
