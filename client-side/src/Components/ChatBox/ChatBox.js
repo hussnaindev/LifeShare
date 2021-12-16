@@ -20,7 +20,7 @@ const ChatBox = () => {
                     col.docs.map(
                         (doc) => {
                             if (doc.data().username === auth.currentUser.displayName) {
-                                onSnapshot(query(collection(doc.ref, "messages"), orderBy('timestamp', 'asc')),
+                                onSnapshot(query(collection(doc.ref, "sent messages"), orderBy('timestamp', 'asc')),
                                     (msgCol) => {
                                         setMessages(
                                             msgCol.docs.map(
@@ -86,7 +86,7 @@ const ChatBox = () => {
 
     return(
         <div className="chatpage">
-            <SideBar listItems={["Profile", "Find Donor", "Settings", "Logout"]} />
+            <SideBar profile={auth.currentUser.displayName} />
             <div className="chatbox-container">
                 <div className="chatbox">
                     <div className="chatbox-header">
