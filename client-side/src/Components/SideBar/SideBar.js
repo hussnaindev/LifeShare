@@ -1,7 +1,6 @@
 import {AccountCircle, GpsFixed, HowToReg, LocalHospital, MenuOpen, Settings} from '@material-ui/icons';
+import {ContactMail, Info, Policy} from '@mui/icons-material';
 import Logout from '@mui/icons-material/Logout';
-import MailIcon from '@mui/icons-material/Mail';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
 import PersonSearch from '@mui/icons-material/PersonSearch';
 import {Box, Divider, Drawer, IconButton, List, ListItem, ListItemIcon, ListItemText} from '@mui/material';
 import {makeStyles} from '@mui/styles';
@@ -11,8 +10,8 @@ import {auth} from '../../Firebase';
 const useStyles = makeStyles(
     {
         icon: {
-            height: "2.5vw",
-            width: "2.5vw"
+            height: "3vw",
+            width: "3vw"
         }
     }
 )
@@ -34,7 +33,7 @@ function SideBar({profile}) {
             {
                 (profile) ? (
                     <List>
-                        <ListItem button>
+                        <ListItem button onClick={() => window.open("/", "__self")}>
                             <ListItemIcon>
                                 <AccountCircle />
                             </ListItemIcon>
@@ -46,7 +45,7 @@ function SideBar({profile}) {
                             </ListItemIcon>
                             <ListItemText primary={"Settings"} />
                         </ListItem>
-                        <ListItem button>
+                        <ListItem button onClick={() => window.open("/finddonor", "__self")}>
                             <ListItemIcon>
                                 <PersonSearch />
                             </ListItemIcon>
@@ -61,25 +60,25 @@ function SideBar({profile}) {
                     </List>
                 ) : (
                     <List>
-                        <ListItem button onClick={() => window.open('/login', "__blank")}>
+                        <ListItem button onClick={() => window.open('/login', "__self")}>
                             <ListItemIcon>
                                 <AccountCircle />
                             </ListItemIcon>
                             <ListItemText primary={"Login"} />
                         </ListItem>
-                        <ListItem button onClick={() => window.open('/register', "__blank")}>
+                        <ListItem button onClick={() => window.open('/register', "__self")}>
                             <ListItemIcon>
                                 <HowToReg />
                             </ListItemIcon>
                             <ListItemText primary={"Register"} />
                         </ListItem>
-                        <ListItem button>
+                        <ListItem button onClick={() => window.open("/locationservice", "__self")}>
                             <ListItemIcon>
                                 <GpsFixed />
                             </ListItemIcon>
                             <ListItemText primary={"Donors Around You"} />
                         </ListItem>
-                        <ListItem button>
+                        <ListItem button onClick={() => window.open("/locationservice", "__self")}>
                             <ListItemIcon>
                                 <LocalHospital />
                             </ListItemIcon>
@@ -90,18 +89,24 @@ function SideBar({profile}) {
             }
             <Divider />
             <List>
-                {
-                    ['Contact Us', 'About Blood Donation', 'Regulations'].map(
-                        (text, index) => (
-                            <ListItem button key={text}>
-                                <ListItemIcon>
-                                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                                </ListItemIcon>
-                                <ListItemText primary={text} />
-                            </ListItem>
-                        )
-                    )
-                }
+                <ListItem button>
+                    <ListItemIcon>
+                        <ContactMail />
+                    </ListItemIcon>
+                    <ListItemText primary={"Contact Us"} />
+                </ListItem>
+                <ListItem button>
+                    <ListItemIcon>
+                        <Info />
+                    </ListItemIcon>
+                    <ListItemText primary={"About Blood Donation"} />
+                </ListItem>
+                <ListItem button>
+                    <ListItemIcon>
+                        <Policy />
+                    </ListItemIcon>
+                    <ListItemText primary={"Regulations"} />
+                </ListItem>
             </List>
         </Box>
     );
@@ -110,7 +115,7 @@ function SideBar({profile}) {
         <div className="sidebar">
             {
                 <React.Fragment key={"left"}>
-                    <IconButton children={<MenuOpen className={sideBarStyle.icon} />} color="primary" onClick={toggleDrawer("left", true)} />
+                    <IconButton children={<MenuOpen style={{fontSize: '3vw'}} />} color="primary" onClick={toggleDrawer("left", true)} />
                     <Drawer anchor={"left"} open={sideBarState} onClose={toggleDrawer("left", false)}>
                         {list("left")}
                     </Drawer>

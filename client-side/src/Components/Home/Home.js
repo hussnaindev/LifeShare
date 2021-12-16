@@ -1,3 +1,4 @@
+import {VolunteerActivism} from '@mui/icons-material';
 import React from 'react';
 import {auth} from '../../Firebase';
 import Dashboard from '../Dashboard/Dashboard';
@@ -19,6 +20,9 @@ function Home() {
                             <h1 className="home__page__heading">
                                 Welcome to LifeShare
                             </h1>
+                            <div className="home__page__icon">
+                                <VolunteerActivism style={{fontSize: '25vw', color: "#1976d2"}} />
+                            </div>
                         </div>
                     </>
                 )
