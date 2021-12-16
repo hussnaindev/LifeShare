@@ -1,33 +1,62 @@
-import {VolunteerActivism} from '@mui/icons-material';
 import React from 'react';
-import {auth} from '../../Firebase';
-import Dashboard from '../Dashboard/Dashboard';
-import SideBar from '../SideBar/SideBar';
+import './Home.css'
+import logo from './Icons/bd3.png'
+import bg from './Icons/bd2.png'
 
 function Home() {
     return (
-        <section className="home">
-            {
-                (auth.currentUser) ? (
-                    <>
-                        <SideBar profile={auth.currentUser.displayName} />
-                        <Dashboard />
-                    </>
-                ) : (
-                    <>
-                        <SideBar />
-                        <div className="home__page">
-                            <h1 className="home__page__heading">
-                                Welcome to LifeShare
-                            </h1>
-                            <div className="home__page__icon">
-                                <VolunteerActivism style={{fontSize: '25vw', color: "#1976d2"}} />
-                            </div>
+        <div className='homepage'>
+            
+            <div className='navbar'>
+                <div className='app-logo'>
+                    <img src={logo} height="50px" alt='logo-image' ></img>
+                </div>
+                <div className='navbar-buttons'>
+                    <button className='login-button'>Login</button>
+                    <button className='register-button'>Register</button>
+                </div>
+            </div>
+
+            <div className='homepage-info-container'>
+                <div className='info-container'>
+                    <div className='info'>
+                        <h1 className='info-title'>
+                            LifeShare
+                            <img src={logo} height="40px" alt='logo-image' ></img>
+                        </h1>
+                        <p className='info-detail'>
+                            Let's Donate to Save Lifes. LifeShare is a platform to help people
+                            in blood arrangement and also provide opportunites to volunteers for
+                            this charity act. 
+                        </p>
+
+                  
+
+                        <p className='info-quote'>
+                        "Opportunities knock the door sometimes, so don’t let it go and donate blood.”
+                        </p>
+
+                        <div className='readmore-button-container'>
+                            <button className='readmore-button'>
+                                Read more
+                            </button>
                         </div>
-                    </>
-                )
-            }
-        </section>
+                       
+
+                    </div>
+                </div>
+
+                <div className='image-container'>
+                    <div className='blood-image'>
+                        <img src={bg} alt='logo'></img>
+                    </div>
+                    
+                </div>
+                
+
+
+            </div>
+        </div>
     )
 }
 
