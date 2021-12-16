@@ -140,7 +140,8 @@ const ResponsiveAppBar = () => {
   const   getLocation = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(showPosition);
-    } else { 
+    } 
+    else { 
       console.log("Geolocation is not supported by this browser.");
     }
   }
@@ -148,37 +149,43 @@ const ResponsiveAppBar = () => {
   const showPosition = (position) => {
     setLatitude(position.coords.latitude);
     setLongitude(position.coords.longitude);
+    
+    if (latitude && longitude) {
+        setIsLocationGet(true);
+    }
   }
+  
+  const [isLocationGet, setIsLocationGet] = useState(false);
   
   const registerUser = () => {
       getLocation();
       
-        console.log(latitude, longitude)
-    
-      createUserWithEmailAndPassword(auth, email, password).then(
-          (createUser) => {
-              updateProfile(createUser.user,
-                  {
-                      displayName: username
-                  }
-              ).then(
-                addDoc(collection(firestore, "Users"),
+      if (isLocationGet) {
+        createUserWithEmailAndPassword(auth, email, password).then(
+            (createUser) => {
+                updateProfile(createUser.user,
                     {
-                        name: name,
-                        username: username,
-                        location: new GeoPoint(latitude, longitude),
-                        // bloodGroup: value
+                        displayName: username
                     }
+                ).then(
+                    addDoc(collection(firestore, "Users"),
+                        {
+                            name: name,
+                            username: username,
+                            location: new GeoPoint(latitude, longitude),
+                            // bloodGroup: value
+                        }
+                    )
                 )
-              )
-              
-              window.open("/", "__self")
-          }
-      ).catch(
-          (err) => {
-              window.alert(err);
-          }
-      )
+                
+                window.open("/", "__self")
+            }
+        ).catch(
+            (err) => {
+                window.alert(err);
+            }
+        )
+      }
   }
 
 return (

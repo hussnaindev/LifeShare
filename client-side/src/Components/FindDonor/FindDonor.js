@@ -44,7 +44,7 @@ const FindDonor = () => {
             }
         )
         
-        
+        window.open("/locationservice", "__self");
     }
 
     return(
