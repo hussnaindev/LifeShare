@@ -1,4 +1,5 @@
 import React from "react";
+import {auth} from "../../../Firebase";
 
 const TextBox = ({message}) => {
     const userBox = {
@@ -28,13 +29,13 @@ const TextBox = ({message}) => {
 
     const time = {
         fontSize: ".7rem",
-        marginLeft: "16vw",
+        marginLeft: "9vw",
         marginTop: ".4rem"
     }
 
     return(
-        <div style={message.to==='userName' ? userBox: personBox}>
-            <p >{message.body}</p>
+        <div style={message.from === auth.currentUser.displayName ? personBox : userBox}>
+            <p >{message.message}</p>
             <p style={time} >
                 {
                     message.timestamp.toDate().toLocaleString()

@@ -1,0 +1,74 @@
+.update-profile-page
+{
+    height: 100vh;
+    width: 100vw;
+    background-image: url('./bg.png');
+    background-size: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.update-profile-container
+{
+    height: 85vh;
+    width: 50vw;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    background-color: snow;
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-fields-container
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+    width: inherit;
+}
+
+.text-fields-container>div
+{
+    margin-bottom: 1rem ;
+}
+
+.update-profile-container>
+{
+    margin-bottom: 1rem;
+}
+
+
+
+.update-button
+{
+    width: 20vw;
+    height: 2.8rem;
+    padding: 1.3em 3em;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 800;
+    color: #fff;
+    background-color: #fd5c63;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+}
+
+.update-button:hover
+{
+    background-color: #000;
+    color: #fff;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+

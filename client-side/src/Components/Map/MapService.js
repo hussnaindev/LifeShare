@@ -1,5 +1,5 @@
 import {collection, onSnapshot, query} from "firebase/firestore";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {MapContainer, Marker, Popup, TileLayer} from 'react-leaflet';
 import {Link} from "react-router-dom";
 import {auth, firestore} from "../../Firebase";
@@ -26,32 +26,36 @@ function IssMap() {
     const [location, setLocation] = useState([{pos: [51.505, -0.09], name: "Hello"}]);
     const [userLocation, setUserLocation] = useState({pos: [51.505, -0.09], name: "Hello"});
     
-    onSnapshot(query(collection(firestore, "Users")),
-        (col) => {
-            setLocation(
-                col.docs.map(
-                    (doc) => (
-                        {
-                            pos: [doc.data().location["_lat"], doc.data().location["_long"]],
-                            name: doc.data().name
+    useEffect(
+        () => {
+            onSnapshot(query(collection(firestore, "Users")),
+                (users) => {
+                    setLocation(
+                        users.docs.map(
+                            (user) => (
+                                {
+                                    pos: [user.data().location["_lat"], user.data().location["_long"]],
+                                    name: user.data().name
+                                }
+                            )
+                        )
+                    )
+                    
+                    users.docs.map(
+                        (user) => {
+                            if (user.data().username === auth.currentUser.displayName) {
+                                setUserLocation(
+                                    {
+                                        pos: [user.data().location["_lat"], user.data().location["_long"]],
+                                        name: user.data().name
+                                    }
+                                )
+                            }
                         }
                     )
-                )
-            )
-            
-            col.docs.map(
-                (doc) => {
-                    if (doc.data().username === auth.currentUser.displayName) {
-                        setUserLocation(
-                            {
-                                pos: [doc.data().location["_lat"], doc.data().location["_long"]],
-                                name: doc.data().name
-                            }
-                        )
-                    }
                 }
             )
-        }
+        }, []
     )
     
     return (
@@ -61,30 +65,29 @@ function IssMap() {
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
-                <Marker position={userLocation["pos"]} >
+                <Marker position={userLocation["pos"]}>
                     <Popup>
                         Your Location
                     </Popup>
                 </Marker>
-                {location.map((item, i) => (
-                    <Marker
-                        position={
-                            item.pos
-                        }
-                        key={i}
-
-                    >
-                        <Popup>
-                            {item.name}
-                            <br />
-                            <Link to="/chat" >Chat</Link>
-                        </Popup>
-                    </Marker>
-                ))}
+                {
+                    React.Children.toArray(
+                        location.map(
+                            (item) => (
+                                <Marker position={item.pos}>
+                                    <Popup>
+                                        {item.name}
+                                        <br />
+                                        <Link to="/chat" >Chat</Link>
+                                    </Popup>
+                                </Marker>
+                            )
+                        )
+                    )
+                }
             </MapContainer>
         </>
-    );
-                    
+    );          
 }
 
 export default IssMap;

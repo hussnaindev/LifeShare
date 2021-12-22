@@ -1,0 +1,12 @@
+.chatpage {
+    display: grid;
+    grid-template-columns: 1fr 99fr;
+    height: 100vh;
+}
+
+.chatbox_container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto;
+    border-left: solid black 4px;
+}

@@ -1,13 +1,14 @@
 import React, {useEffect, useState} from 'react';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import "./App.css";
-import ChatBox from './Components/ChatBox/ChatBox';
-import Dashboard from './Components/Dashboard/Dashboard';
+import Chat from './Components/Chat/Chat';
+import DonationRecord from './Components/DonationRecord/DonationRecord';
 import FindDonor from './Components/FindDonor/FindDonor';
 import Home from './Components/Home/Home';
 import LoginPage from './Components/LoginPage/LoginPage';
 import MapService from './Components/Map/MapService';
 import RegisterPage from "./Components/RegisterPage/RegisterPage";
+import UpdateProfile from "./Components/UpdateProfile/UpdateProfile";
 import {auth} from './Firebase';
 
 function App() {
@@ -39,8 +40,9 @@ function App() {
                     <Router>
                         <Routes>
                             <Route path='/' element={<Home />} />
-                            <Route path='/chat' element={<ChatBox />} />
-                            <Route path='/dashboard' element={<Dashboard />} />
+                            <Route path='/chat' element={<Chat />} />
+                            <Route path="/donationrecord" element={<DonationRecord />} />
+                            <Route path="/settings" element={<UpdateProfile />} />
                             <Route path='/locationservice' element={<MapService />} />
                             <Route path='/register' element={<RegisterPage />} />
                             <Route path="/finddonor" element={<FindDonor />} />

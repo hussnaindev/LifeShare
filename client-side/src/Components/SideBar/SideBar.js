@@ -3,22 +3,12 @@ import {ContactMail, Info, Policy} from '@mui/icons-material';
 import Logout from '@mui/icons-material/Logout';
 import PersonSearch from '@mui/icons-material/PersonSearch';
 import {Box, Divider, Drawer, IconButton, List, ListItem, ListItemIcon, ListItemText} from '@mui/material';
-import {makeStyles} from '@mui/styles';
 import React, {useState} from 'react';
 import {auth} from '../../Firebase';
-
-const useStyles = makeStyles(
-    {
-        icon: {
-            height: "3vw",
-            width: "3vw"
-        }
-    }
-)
+import "./SideBar.css";
 
 function SideBar({profile}) {
     const [sideBarState, setSideBarState] = useState(false);
-    const sideBarStyle = useStyles();
 
     const toggleDrawer = (anchor, open) => (event) => {
         if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -39,7 +29,7 @@ function SideBar({profile}) {
                             </ListItemIcon>
                             <ListItemText primary={profile} />
                         </ListItem>
-                        <ListItem button>
+                        <ListItem button onClick={() => window.open("/settings", "__self")}>
                             <ListItemIcon>
                                 <Settings />
                             </ListItemIcon>

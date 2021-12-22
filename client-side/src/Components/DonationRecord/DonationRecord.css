@@ -1,0 +1,58 @@
+.donation-record-page
+{
+    height: 100vh;
+    width: 100vw;
+    background-image: url('./bg.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.record-container
+{
+    background-color: snow;
+    width: 80vw;
+    height: 90vh;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.record-child-container
+{
+    height: 80vh;
+    width: 80vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+}
+
+.record-child-container>*
+{
+    margin-top: 2rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    
+}
+
+.record-heading
+{
+    height: 10vh;
+    width: inherit;
+    background-color: #fd5c63;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+}
+
+.record-heading>p
+{
+    margin-right: .5rem;
+}
