@@ -16,7 +16,7 @@ import React, {useState} from 'react';
 import {auth, firestore} from '../../Firebase';
 import './RegisterPage.css';
 
-const pages = ['Donor', 'Patient', 'Hospital'];
+// const pages = ['Donor', 'Patient', 'Hospital'];
 
 const currencies = [
   {
@@ -177,8 +177,6 @@ const ResponsiveAppBar = () => {
                         }
                     )
                 )
-                
-                window.open("/", "__self")
             }
         ).catch(
             (err) => {
